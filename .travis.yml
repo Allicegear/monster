@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alicegear/monster -f Dockerfile.dev .
+
+script:
+  - docker run alicegear/monster npm run test -- -- coverage
